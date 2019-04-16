@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 加载mybatis的映射文件 -->
+<mapper namespace="com.tna.yb_store.mapper.ProductMapper">
+    <!--id要与UsersMapper接口里的方法名相同，parameterType由于pojo包已经配置了别名，所以pojo包下不用写路径-->
+    <insert id="addProduct" parameterType="product">
+        insert into store_product(id, name,  `describe`, number, img, price, status, is_enable, create_user, modify_user) values (#{id},#{name},#{describe},#{number},#{img},#{price},#{status},#{is_enable},#{create_user},#{modify_user})
+    </insert>
+
+    <select id="findProductAll" resultType="product">
+        select *from store_product
+    </select>
+
+    <update id="updateProduct" parameterType="product">
+        update store_product set id=#{id}, name=#{name}, `describe`=#{describe}, number=#{number}, img=#{img}, price=#{price}, status=#{status}, is_enable=#{is_enable}, create_user=#{create_user}, modify_user=#{modify_user} where id=#{id} and create_user=#{create_user}
+    </update>
+
+    <delete id="deleteProductById">
+        delete from store_product where id = #{value}
+    </delete>
+
+    <delete id="deleteProductAll">
+        delete from store_product
+    </delete>
+</mapper>

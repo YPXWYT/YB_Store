@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 加载mybatis的映射文件 -->
+<mapper namespace="com.tna.yb_store.mapper.OrderMapper">
+    <!--id要与UsersMapper接口里的方法名相同，parameterType由于pojo包已经配置了别名，所以pojo包下不用写路径-->
+
+    <insert id="addOrder" parameterType="order">
+        insert into store_order(product_id, yb_userid, yb_username, yb_usernick, yb_sex, yb_money, status, is_enable, create_user, modify_user) values (#{product_id},#{yb_userid},#{yb_username},#{yb_usernick},#{yb_sex},#{yb_money},#{status},#{is_enable},#{create_user},#{modify_user})
+    </insert>
+
+    <select id="findOrderAll" resultType="order">
+        select * from store_order
+    </select>
+
+    <select id="findOrderById" resultType="order">
+        select *from store_order where yb_userid = #{value}
+    </select>
+
+    <update id="updateOrder" parameterType="order">
+        update store_order set product_id=#{product_id}, yb_userid=#{yb_userid}, yb_username=#{yb_username}, yb_usernick=#{yb_usernick}, yb_sex=#{yb_sex}, yb_money=#{yb_money}, status=#{status}, is_enable=#{is_enable}, create_user=#{create_user}, modify_user=#{modify_user} where yb_userid=#{yb_userid} and product_id=#{product_id}
+    </update>
+
+    <delete id="deleteOrderById">
+        delete from store_order where id = #{value}
+    </delete>
+
+    <delete id="deleteOrderAll">
+        delete from store_order
+    </delete>
+</mapper>
