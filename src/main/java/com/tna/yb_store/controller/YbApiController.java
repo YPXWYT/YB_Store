@@ -87,6 +87,7 @@ public class YbApiController {
             String url = "http://127.0.0.1:3000?token=" +
                     accessToken;
             response.sendRedirect(url);
+            request.getRequestDispatcher(url).forward(request,response);
             //授权查询
 //                String text1 = auth.getManInstance(accessToken).query();
 //                System.out.println(text1);

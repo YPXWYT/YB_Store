@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * rest 风格 api
  *
  * GET     /api/v1/orders        所有订单
+ * GET     /api/v1/orders/{userId}       单个用户所有订单
  * GET     /api/v1/orders/{id}   获取一条订单
  * POST    /api/v1/orders        新建一条订单
  * PUT     /api/v1/orders/{id}   更新一条订单，提供全部信息
