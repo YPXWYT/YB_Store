@@ -185,7 +185,7 @@ public class YbApiController {
             YbUser ybUser = new YbUser();
 
             JSONObject userInfo = JSONObject.fromObject(user.me()).getJSONObject("info");
-//            JSONObject otherUserInfo = JSONObject.fromObject(user.other(2));
+            JSONObject otherUserInfo = JSONObject.fromObject(user.other(2));
 
             ybUser.setYb_userid(userInfo.getString("yb_userid"));
             ybUser.setYb_username(userInfo.getString("yb_username"));
