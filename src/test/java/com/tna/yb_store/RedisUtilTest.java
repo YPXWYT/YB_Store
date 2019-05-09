@@ -1,7 +1,9 @@
 package com.tna.yb_store;
 
 import com.tna.yb_store.entity.Product;
+import com.tna.yb_store.utils.MD5;
 import com.tna.yb_store.utils.redis.RedisUtil;
+import org.apache.commons.codec.digest.Md5Crypt;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -46,6 +48,13 @@ public class RedisUtilTest {
         }else {
             System.out.println("缓存失败！");
         }
+    }
+
+    @Test
+    public  void MD5Test(){
+        System.out.println(MD5.inputPassToFormPass("ypxwyt"));
+        System.out.println(MD5.inputPassToDbPass(MD5.inputPassToFormPass("ypxwyt"),"ab123"));
+        System.out.println(MD5.formPassToDBPass(MD5.inputPassToDbPass(MD5.inputPassToFormPass("ypxwyt"),"ab123"),"123ab"));
     }
 
     @Test
