@@ -31,7 +31,7 @@ public class Interceptor1 implements HandlerInterceptor {
 
 
     /**
-     *  在请求处理之前进行调用（Controller方法调用之前）
+     * 在请求处理之前进行调用（Controller方法调用之前）
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {

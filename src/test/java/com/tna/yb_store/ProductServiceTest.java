@@ -17,30 +17,30 @@ public class ProductServiceTest {
     private ProductService productService;
 
     @Test
-    public void addProduct(){
-        Product product = new Product(10,"蓝球","蓝球",30,"蓝球图片",80,1,true,"ypx","ypx");
+    public void addProduct() {
+        Product product = new Product(10, "蓝球", "蓝球", 30, "蓝球图片", 80, 1, true, "ypx", "ypx");
         productService.addProduct(product);
     }
 
     @Test
-    public void findProductAll(){
+    public void findProductAll() {
         List<Product> products = productService.findProductAll();
         System.out.println(products);
     }
 
     @Test
-    public void updateProduct(){
-        Product product = new Product(6,"象棋","象棋",20,"象棋图片",80,1,true,"ypx","ypx");
+    public void updateProduct() {
+        Product product = new Product(6, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
         productService.updateProduct(product);
     }
 
     @Test
-    public void deleteProductById(){
+    public void deleteProductById() {
         productService.deleteProductById(10);
     }
 
     @Test
-    public void deleteProductAll(){
+    public void deleteProductAll() {
         productService.deleteProductAll();
     }
 }

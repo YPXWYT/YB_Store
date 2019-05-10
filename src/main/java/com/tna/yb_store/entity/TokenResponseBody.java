@@ -3,7 +3,7 @@ package com.tna.yb_store.entity;
 
 import java.util.List;
 
-public class TokenResponseBody extends BaseResponseBody{
+public class TokenResponseBody extends BaseResponseBody {
     private String token;
     private List<?> info;
     private YbUser user;
@@ -23,7 +23,6 @@ public class TokenResponseBody extends BaseResponseBody{
     public void setInfo(List<?> info) {
         this.info = info;
     }
-
 
 
     public String getToken() {

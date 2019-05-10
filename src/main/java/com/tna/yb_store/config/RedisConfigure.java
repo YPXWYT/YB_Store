@@ -20,7 +20,7 @@ import java.time.Duration;
 
 @Configuration
 @EnableCaching//开启缓存
-public class RedisConfigure{
+public class RedisConfigure {
 
 //    @Value("${spring.redis.host}")
 //    private String host;
@@ -46,15 +46,13 @@ public class RedisConfigure{
         RedisSerializer<Object> jsonSerializer = new GenericJackson2JsonRedisSerializer();
         RedisSerializationContext.SerializationPair<Object> pair = RedisSerializationContext.SerializationPair
                 .fromSerializer(jsonSerializer);
-        RedisCacheConfiguration defaultCacheConfig=RedisCacheConfiguration.defaultCacheConfig()
+        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig()
                 .serializeValuesWith(pair);
         //设置默认超过期时间是30秒
         defaultCacheConfig.entryTtl(Duration.ofSeconds(30));
         //初始化RedisCacheManager
         return new RedisCacheManager(redisCacheWriter, defaultCacheConfig);
     }
-
-
 
 
     // 以下两种redisTemplate自由根据场景选择

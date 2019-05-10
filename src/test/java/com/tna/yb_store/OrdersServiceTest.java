@@ -18,35 +18,35 @@ public class OrdersServiceTest {
     private OrderService ordersService;
 
     @Test
-    public void addOrder(){
-        Order order = new Order(1003,"2003","听海哭的声音","听海哭的声音",'M',"100",0,true,"ypx","ypx");
+    public void addOrder() {
+        Order order = new Order(1003, "2003", "听海哭的声音", "听海哭的声音", 'M', "100", 0, true, "ypx", "ypx");
         ordersService.addOrder(order);
     }
 
     @Test
-    public void findOrderAll(){
+    public void findOrderAll() {
         List<Order> orders = ordersService.findOrderAll();
         System.out.println(orders);
     }
 
     @Test
-    public void updateOrder(){
-        Order order = new Order(1001,"2001","男孩","男孩",'M',"100",1,true,"ypx","ypx");
+    public void updateOrder() {
+        Order order = new Order(1001, "2001", "男孩", "男孩", 'M', "100", 1, true, "ypx", "ypx");
         ordersService.updateOrder(order);
     }
 
     @Test
-    public void deleteOrderById(){
+    public void deleteOrderById() {
         ordersService.deleteOrderById(2);
     }
 
     @Test
-    public void deleteOrderAll(){
+    public void deleteOrderAll() {
         ordersService.deleteOrderAll();
     }
 
     @Test
-    public void findOrderById(){
+    public void findOrderById() {
         List<Order> orders = ordersService.findOrderById("2005");
         System.out.println(orders);
     }

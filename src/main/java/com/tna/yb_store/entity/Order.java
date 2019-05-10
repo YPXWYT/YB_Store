@@ -15,7 +15,7 @@ public class Order {
     private String modify_user;
 
 
-    public Order(int product_id, String yb_userid, String yb_username, String yb_usernick, char yb_sex, String yb_money, int status, boolean is_enable, String create_user,String modify_user) {
+    public Order(int product_id, String yb_userid, String yb_username, String yb_usernick, char yb_sex, String yb_money, int status, boolean is_enable, String create_user, String modify_user) {
         this.product_id = product_id;
         this.yb_userid = yb_userid;
         this.yb_username = yb_username;
@@ -28,7 +28,10 @@ public class Order {
         this.modify_user = modify_user;
     }
 
-    public Order(){};
+    public Order() {
+    }
+
+    ;
 
     public int getId() {
         return id;

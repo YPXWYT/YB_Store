@@ -18,18 +18,19 @@ public class RedisUtil {
 
     /**
      * 写入缓存
-     *  单个K-V
+     * 单个K-V
+     *
      * @param key
      * @param value
      * @return
      */
-    public boolean set(String key,Object value){
+    public boolean set(String key, Object value) {
 
         boolean result = false;
         try {
             logger.info("开始写入缓存");
             ValueOperations<Object, Object> objectValueOperations = redisTemplate.opsForValue();
-            objectValueOperations.set(key,value);
+            objectValueOperations.set(key, value);
             result = true;
         } catch (Exception e) {
             logger.error("缓存出错");
@@ -78,7 +79,7 @@ public class RedisUtil {
     /**
      * 批量删除对应的value
      *
-     * @param keys  多个值
+     * @param keys 多个值
      */
     public void remove(final String... keys) {
         logger.info("开始移除Key");
@@ -88,11 +89,10 @@ public class RedisUtil {
     }
 
 
-
     /**
      * 删除对应的value
      *
-     * @param key  单个 key
+     * @param key 单个 key
      */
     public void remove(final String key) {
         logger.info("开始移除Keys");

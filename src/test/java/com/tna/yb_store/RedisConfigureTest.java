@@ -20,18 +20,18 @@ public class RedisConfigureTest {
 
     @Test
     @Cacheable("product")
-    public void testRedisTemplate(){
+    public void testRedisTemplate() {
         redisTemplate.opsForValue().set("key1", "value1");
-        Product product = new Product(6,"象棋","象棋",20,"象棋图片",80,1,true,"ypx","ypx");
-        Product product1 = new Product(5,"象棋","象棋",20,"象棋图片",80,1,true,"ypx","ypx");
+        Product product = new Product(6, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
+        Product product1 = new Product(5, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
 
-        redisTemplate.opsForList().rightPush("product",product);
-        redisTemplate.opsForList().rightPush("product",product1);
+        redisTemplate.opsForList().rightPush("product", product);
+        redisTemplate.opsForList().rightPush("product", product1);
 
         System.out.println(redisTemplate.opsForValue().get("key1"));
         //查询索引0到商品总数-1索引（也就是查出所有的商品）
-        List<Object> prodList = redisTemplate.opsForList().range("product", 0,redisTemplate.opsForList().size("pruduct")-1);
-        for(Object obj:prodList){
+        List<Object> prodList = redisTemplate.opsForList().range("product", 0, redisTemplate.opsForList().size("pruduct") - 1);
+        for (Object obj : prodList) {
             System.out.println(obj);
         }
     }

@@ -2,7 +2,7 @@ package com.tna.yb_store.entity;
 
 import java.util.List;
 
-public class ProductAndOrderResponseBody extends BaseResponseBody{
+public class ProductAndOrderResponseBody extends BaseResponseBody {
     private List<?> info;
 
     public List<?> getInfo() {

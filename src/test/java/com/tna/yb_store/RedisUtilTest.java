@@ -19,46 +19,46 @@ public class RedisUtilTest {
     private RedisUtil redisUtil;
 
     @Test
-    public void setSO(){
-        Product product = new Product(6,"象棋","象棋",20,"象棋图片",80,1,true,"ypx","ypx");
-        if (redisUtil.set("product1",product)){
+    public void setSO() {
+        Product product = new Product(6, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
+        if (redisUtil.set("product1", product)) {
             System.out.println("缓存成功！");
-        }else {
+        } else {
             System.out.println("缓存失败！");
         }
     }
 
     @Test
-    public void removeKey(){
+    public void removeKey() {
         redisUtil.remove("name");
     }
 
     @Test
-    public void removeKeys(){
-        redisUtil.remove("product1","product2");
+    public void removeKeys() {
+        redisUtil.remove("product1", "product2");
     }
 
     @Test
-    public void setSOL(){
+    public void setSOL() {
 
-        Product product = new Product(10,"象棋","象棋",20,"象棋图片",80,1,true,"ypx","ypx");
+        Product product = new Product(10, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
 
-        if (redisUtil.set("product2",product, (long) 1000)){
+        if (redisUtil.set("product2", product, (long) 1000)) {
             System.out.println("缓存成功！");
-        }else {
+        } else {
             System.out.println("缓存失败！");
         }
     }
 
     @Test
-    public  void MD5Test(){
+    public void MD5Test() {
         System.out.println(MD5.inputPassToFormPass("ypxwyt"));
-        System.out.println(MD5.inputPassToDbPass(MD5.inputPassToFormPass("ypxwyt"),"ab123"));
-        System.out.println(MD5.formPassToDBPass(MD5.inputPassToDbPass(MD5.inputPassToFormPass("ypxwyt"),"ab123"),"123ab"));
+        System.out.println(MD5.inputPassToDbPass(MD5.inputPassToFormPass("ypxwyt"), "ab123"));
+        System.out.println(MD5.formPassToDBPass(MD5.inputPassToDbPass(MD5.inputPassToFormPass("ypxwyt"), "ab123"), "123ab"));
     }
 
     @Test
-    public void get(){
+    public void get() {
         System.out.println(redisUtil.get("product2").toString());
     }
 }

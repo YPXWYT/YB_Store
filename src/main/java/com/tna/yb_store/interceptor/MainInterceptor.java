@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MainInterceptor implements HandlerInterceptor {
 
-//    后处理
+    //    后处理
     @Override
     public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
             throws Exception {
@@ -16,7 +16,7 @@ public class MainInterceptor implements HandlerInterceptor {
         System.out.println("************BaseInterceptor afterCompletion executed**********");
     }
 
-//    返回处理
+    //    返回处理
     @Override
     public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
             throws Exception {
