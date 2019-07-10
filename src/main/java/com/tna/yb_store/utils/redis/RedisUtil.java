@@ -1,12 +1,15 @@
 package com.tna.yb_store.utils.redis;
 
+import com.tna.yb_store.entity.Product;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -62,6 +65,29 @@ public class RedisUtil {
         return result;
     }
 
+    /**
+     * 写入缓存
+     * list集合
+     *
+     * @param key
+     * @param pList
+     * @return
+     */
+    public boolean set(String key,List<Product> pList,Long expireTime) {
+
+        boolean result = false;
+        try {
+            logger.info("开始写入缓存");
+            ListOperations<Object, Object> listOperations = redisTemplate.opsForList();
+            listOperations.set(key,expireTime,pList);
+
+            result = true;
+        } catch (Exception e) {
+            logger.error("缓存出错");
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     /**
      * 读取缓存

@@ -1,5 +1,7 @@
 package com.tna.yb_store.utils;
 
+import com.tna.yb_store.entity.YbUser;
+
 public class AppContext {
     /**
      * App的id或者叫做appkey
@@ -22,5 +24,9 @@ public class AppContext {
     public static final String WEBSITEURL = "http://127.0.0.1:8080/user/yiban.html";
 
     public static final String PAY_API = "https://openapi.yiban.cn/pay/trade_wx";
+
     public static String ACCESS_TOKEN = "access_token";
+
+    public static String CONVERSION_CODE = "conversion_code";
+
 }

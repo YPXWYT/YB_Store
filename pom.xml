@@ -63,8 +63,14 @@
         </dependency>
 
         <dependency>
-            <groupId>yiban</groupId>
-            <artifactId>yiban</artifactId>
+            <groupId>YBOpenApi</groupId>
+            <artifactId>YBOpenApi</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>submail</groupId>
+            <artifactId>submail</artifactId>
             <version>1.0</version>
         </dependency>
 
@@ -88,6 +94,7 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
+            <version>4.5.7</version>
         </dependency>
 
         <dependency>
