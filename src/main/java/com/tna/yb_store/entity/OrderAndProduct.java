@@ -1,9 +1,10 @@
 package com.tna.yb_store.entity;
 
+import java.util.List;
 
-public class Order {
+public class OrderAndProduct {
     private int id;
-    private int product_id;
+    private Product product;
     private String yb_userid;
     private String yb_username;
     private String yb_usernick;
@@ -11,29 +12,18 @@ public class Order {
     private String yb_money;
     private int status;
     private boolean is_enable;
-    private String create_time;
-    private String modify_time;
     private String create_user;
     private String modify_user;
+    private String create_time;
+    private String modify_time;
 
-
-    public Order(int product_id, String yb_userid, String yb_username, String yb_usernick, char yb_sex, String yb_money, int status, boolean is_enable, String create_user, String modify_user) {
-        this.product_id = product_id;
-        this.yb_userid = yb_userid;
-        this.yb_username = yb_username;
-        this.yb_usernick = yb_usernick;
-        this.yb_sex = yb_sex;
-        this.yb_money = yb_money;
-        this.status = status;
-        this.is_enable = is_enable;
-        this.create_user = create_user;
-        this.modify_user = modify_user;
+    public int getId() {
+        return id;
     }
 
-    public Order() {
+    public void setId(int id) {
+        this.id = id;
     }
-
-    ;
 
     public String getCreate_time() {
         return create_time;
@@ -51,20 +41,12 @@ public class Order {
         this.modify_time = modify_time;
     }
 
-    public int getId() {
-        return id;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public String getYb_userid() {
@@ -137,22 +119,5 @@ public class Order {
 
     public void setModify_user(String modify_user) {
         this.modify_user = modify_user;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", product_id=" + product_id +
-                ", yb_userid='" + yb_userid + '\'' +
-                ", yb_username='" + yb_username + '\'' +
-                ", yb_usernick='" + yb_usernick + '\'' +
-                ", yb_sex='" + yb_sex + '\'' +
-                ", yb_money='" + yb_money + '\'' +
-                ", status=" + status +
-                ", is_enable=" + is_enable +
-                ", create_user='" + create_user + '\'' +
-                ", modify_user='" + modify_user + '\'' +
-                '}';
     }
 }

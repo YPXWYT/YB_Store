@@ -14,10 +14,10 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class RedisUtil {
-    private static Logger logger = LogManager.getLogger(RedisUtil.class.getName());
+    private Logger logger = LogManager.getLogger(RedisUtil.class.getName());
 
     @Resource
-    RedisTemplate<Object, Object> redisTemplate;
+    private RedisTemplate<Object, Object> redisTemplate;
 
     /**
      * 写入缓存
@@ -25,7 +25,7 @@ public class RedisUtil {
      *
      * @param key
      * @param value
-     * @return
+     * @return boolean
      */
     public boolean set(String key, Object value) {
 
@@ -49,7 +49,7 @@ public class RedisUtil {
      * @param value
      * @return
      */
-    public boolean set(final String key, Object value, Long expireTime) {
+    public boolean set(String key, Object value, Long expireTime) {
         boolean result = false;
         try {
             logger.info("开始写入缓存");
@@ -73,13 +73,13 @@ public class RedisUtil {
      * @param pList
      * @return
      */
-    public boolean set(String key,List<Product> pList,Long expireTime) {
+    public boolean set(String key, List<Product> pList, Long expireTime) {
 
         boolean result = false;
         try {
             logger.info("开始写入缓存");
             ListOperations<Object, Object> listOperations = redisTemplate.opsForList();
-            listOperations.set(key,expireTime,pList);
+            listOperations.set(key, expireTime, pList);
 
             result = true;
         } catch (Exception e) {
@@ -103,6 +103,20 @@ public class RedisUtil {
     }
 
     /**
+     * 检查token是否存在
+     *
+     * @param key
+     * @return
+     */
+    public boolean checkToken(String key) {
+        boolean flag = false;
+        if (get(key) != null) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    /**
      * 批量删除对应的value
      *
      * @param keys 多个值
@@ -122,7 +136,7 @@ public class RedisUtil {
      */
     public void remove(final String key) {
         logger.info("开始移除Keys");
-        if (exists(key)) {
+        if (get(key)!=null) {
             redisTemplate.delete(key);
         }
     }
@@ -133,8 +147,8 @@ public class RedisUtil {
      * @param key key
      * @return 是否
      */
-    private boolean exists(final String key) {
-        return redisTemplate.hasKey(key);
-    }
+//    private boolean exists(final String key) {
+//        return redisTemplate.hasKey(key);
+//    }
 
 }

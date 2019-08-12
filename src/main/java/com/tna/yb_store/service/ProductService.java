@@ -1,19 +1,17 @@
 package com.tna.yb_store.service;
 
+import com.tna.yb_store.entity.BaseResponseBody;
 import com.tna.yb_store.entity.Order;
 import com.tna.yb_store.entity.Product;
+import org.springframework.http.HttpEntity;
 
 import java.util.List;
 
 public interface ProductService {
 
-    void addProduct(Product product);
+    HttpEntity<BaseResponseBody> insertProduct(Product product);
 
-    List<Product> findProductAll();
+    HttpEntity<BaseResponseBody> selectProductAll(int currIndex, int sizePerPage);
 
-    void updateProduct(Product product);
-
-    void deleteProductById(int id);
-
-    void deleteProductAll();
+    HttpEntity<BaseResponseBody> selectProductById(int product_id);
 }

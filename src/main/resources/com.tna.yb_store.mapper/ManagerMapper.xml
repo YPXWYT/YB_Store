@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 加载mybatis的映射文件 -->
+<mapper namespace="com.tna.yb_store.mapper.ManagerMapper">
+    <!--id要与UsersMapper接口里的方法名相同，parameterType由于pojo包已经配置了别名，所以pojo包下不用写路径-->
+    <select id="checkManagerId" resultType="java.lang.String">
+        select manager_id from store_manager where manager_id = #{manager_id}
+    </select>
+</mapper>

@@ -8,36 +8,14 @@ import java.util.List;
 @Mapper
 public interface ProductMapper {
 
-    /**
-     * 添加一条产品信息
-     *
-     * @param product
-     */
-    void addProduct(Product product);
+    int insertProduct(Product product);
 
-    /**
-     * 获取所有产品的全部订单信息
-     *
-     * @return
-     */
-    List<Product> findProductAll();
+    List<Product> selectProductAll(int currIndex, int sizePerPage);
 
-    /**
-     * 更新一条产品的全部信息
-     *
-     * @param product
-     */
-    void updateProduct(Product product);
+    Product selectProductById(int product_id);
 
-    /**
-     * 删除一条产品的全部信息
-     *
-     * @param id
-     */
-    void deleteProductById(int id);
+    int updateProductNumber(int product_id);
 
-    /**
-     * 删除所有产品信息
-     */
-    void deleteProductAll();
+    int selectProductNumberById(int product_id);
+
 }

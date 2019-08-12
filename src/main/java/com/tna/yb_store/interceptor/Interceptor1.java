@@ -37,6 +37,6 @@ public class Interceptor1 implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 
         System.out.println("************BaseInterceptor1 preHandle executed**********");
-        return true;
+        return false;
     }
 }

@@ -19,15 +19,19 @@ public class OrdersServiceTest {
 
     @Test
     public void addOrder() {
-        Order order = new Order(1003, "2003", "听海哭的声音", "听海哭的声音", 'M', "100", 0, true, "ypx", "ypx");
-        ordersService.addOrder(order);
+        int product_id = 2003;
+        for (int i = 0; i < 10; i++) {
+            if (i%2==0){
+                Order order = new Order(product_id, "11650216", "听海哭的声音", "听海哭的声音", 'M', "100", 0, true, "ypx", "ypx");
+                ordersService.insertOrder(order);
+            }else {
+                Order order = new Order(product_id, "11650217", "听海哭的声音", "听海哭的声音", 'M', "100", 0, true, "ypx", "ypx");
+                ordersService.insertOrder(order);
+            }
+            product_id++;
+        }
     }
 
-    @Test
-    public void findOrderAll() {
-        List<Order> orders = ordersService.findOrderAll();
-        System.out.println(orders);
-    }
 
     @Test
     public void updateOrder() {
@@ -37,17 +41,11 @@ public class OrdersServiceTest {
 
     @Test
     public void deleteOrderById() {
-        ordersService.deleteOrderById(2);
-    }
-
-    @Test
-    public void deleteOrderAll() {
-        ordersService.deleteOrderAll();
+        ordersService.deleteOrderByOrderId(2);
     }
 
     @Test
     public void findOrderById() {
-        List<Order> orders = ordersService.findOrderById("2005");
-        System.out.println(orders);
+
     }
 }

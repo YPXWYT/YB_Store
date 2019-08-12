@@ -4,17 +4,9 @@
 <!-- 加载mybatis的映射文件 -->
 <mapper namespace="com.tna.yb_store.mapper.ProductMapper">
     <!--id要与UsersMapper接口里的方法名相同，parameterType由于pojo包已经配置了别名，所以pojo包下不用写路径-->
-    <insert id="addProduct" parameterType="product">
-        insert into store_product(id, name,  `describe`, number, img, price, status, is_enable, create_user, modify_user) values (#{id},#{name},#{describe},#{number},#{img},#{price},#{status},#{is_enable},#{create_user},#{modify_user})
+    <insert id="insertProduct" parameterType="product">
+        insert into store_product(name,  `describe`, number, img, price, status, is_enable, create_user, modify_user) values (#{name},#{describe},#{number},#{img},#{price},#{status},#{is_enable},#{create_user},#{modify_user})
     </insert>
-
-    <select id="findProductAll" resultType="product">
-        select *from store_product
-    </select>
-
-    <update id="updateProduct" parameterType="product">
-        update store_product set id=#{id}, name=#{name}, `describe`=#{describe}, number=#{number}, img=#{img}, price=#{price}, status=#{status}, is_enable=#{is_enable}, create_user=#{create_user}, modify_user=#{modify_user} where id=#{id} and create_user=#{create_user}
-    </update>
 
     <delete id="deleteProductById">
         delete from store_product where id = #{value}
@@ -23,4 +15,25 @@
     <delete id="deleteProductAll">
         delete from store_product
     </delete>
+
+    <update id="updateProduct" parameterType="product">
+        update store_product set id=#{id}, name=#{name}, `describe`=#{describe}, number=#{number}, img=#{img}, price=#{price}, status=#{status}, is_enable=#{is_enable}, create_user=#{create_user}, modify_user=#{modify_user} where id=#{id} and create_user=#{create_user}
+    </update>
+
+    <update id="updateProductNumber" parameterType="java.lang.Integer">
+        update store_product set number=number-1 where id=#{product_id}
+    </update>
+
+    <select id="selectProductAll" resultType="product">
+        select * from store_product limit #{currIndex},#{sizePerPage}
+    </select>
+
+    <select id="selectProductById" resultType="product">
+        select * from store_product where id=#{value}
+    </select>
+
+    <select id="selectProductNumberById" resultType="java.lang.Integer">
+        select number from store_product where id=#{value}
+    </select>
+
 </mapper>

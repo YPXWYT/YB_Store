@@ -1,6 +1,7 @@
 package com.tna.yb_store;
 
 import com.tna.yb_store.entity.Product;
+import com.tna.yb_store.mapper.ProductMapper;
 import com.tna.yb_store.service.ProductService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,33 +15,41 @@ import java.util.List;
 @SpringBootTest
 public class ProductServiceTest {
     @Autowired
-    private ProductService productService;
+    private ProductMapper productMapper;
 
     @Test
     public void addProduct() {
-        Product product = new Product(10, "蓝球", "蓝球", 30, "蓝球图片", 80, 1, true, "ypx", "ypx");
-        productService.addProduct(product);
+        for (int i = 0; i < 29; i++) {
+            if (i % 2 == 0) {
+                Product product = new Product(10, "蓝球", "蓝球", 30, "", 0, 0, true, "ypx", "");
+                productMapper.insertProduct(product);
+            } else {
+                Product product = new Product(10, "排球", "排球", 30, "", 0, 0, true, "ypx", "");
+                productMapper.insertProduct(product);
+            }
+
+        }
     }
 
     @Test
     public void findProductAll() {
-        List<Product> products = productService.findProductAll();
-        System.out.println(products);
+//        List<Product> products = productService.findProductAll();
+//        System.out.println(products);
     }
 
-    @Test
-    public void updateProduct() {
-        Product product = new Product(6, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
-        productService.updateProduct(product);
-    }
-
-    @Test
-    public void deleteProductById() {
-        productService.deleteProductById(10);
-    }
-
-    @Test
-    public void deleteProductAll() {
-        productService.deleteProductAll();
-    }
+//    @Test
+//    public void updateProduct() {
+//        Product product = new Product(6, "象棋", "象棋", 20, "象棋图片", 80, 1, true, "ypx", "ypx");
+//        productService.updateProduct(product);
+//    }
+//
+//    @Test
+//    public void deleteProductById() {
+//        productService.deleteProductById(10);
+//    }
+//
+//    @Test
+//    public void deleteProductAll() {
+//        productService.deleteProductAll();
+//    }
 }

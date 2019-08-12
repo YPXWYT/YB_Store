@@ -1,20 +1,23 @@
 package com.tna.yb_store.service;
 
+import com.tna.yb_store.entity.BaseResponseBody;
 import com.tna.yb_store.entity.Order;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface OrderService {
 
-    void addOrder(Order order);
+    HttpEntity<BaseResponseBody> insertOrder(Order order);
 
-    List<Order> findOrderAll();
+    HttpEntity<BaseResponseBody> deleteOrderByUserId(String user_id);
 
-    void updateOrder(Order order);
+    HttpEntity<BaseResponseBody> deleteOrderByOrderId(int id);
 
-    void deleteOrderById(int id);
+    HttpEntity<BaseResponseBody> updateOrder(Order order);
 
-    void deleteOrderAll();
+    HttpEntity<BaseResponseBody> selectOrderByOrderId(int id);
 
-    List<Order> findOrderById(String id);
+    HttpEntity<BaseResponseBody> selectOrderByUserId(String user_id);
 }

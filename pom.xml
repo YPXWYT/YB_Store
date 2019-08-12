@@ -16,6 +16,9 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
@@ -63,14 +66,8 @@
         </dependency>
 
         <dependency>
-            <groupId>YBOpenApi</groupId>
-            <artifactId>YBOpenApi</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>submail</groupId>
-            <artifactId>submail</artifactId>
+            <groupId>yiban</groupId>
+            <artifactId>yiban</artifactId>
             <version>1.0</version>
         </dependency>
 
@@ -124,6 +121,7 @@
     </dependencies>
 
     <build>
+        <finalName>store</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
